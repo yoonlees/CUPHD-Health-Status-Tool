@@ -1,0 +1,28 @@
+body{
+    text-align: center;
+}
+
+.filters{
+    display:inline-block;
+}
+
+.highlight{
+    display:none;
+    background: pink;
+    margin: 50px;
+    padding: 20px;
+    border: dashed;
+}
+
+.list{
+    margin: 50px;
+}
+
+.navbar-nav {
+    float:right;
+}
+
+.nav-item{
+    margin-left:5px;
+    margin-right: 5px;
+}
