@@ -20,5 +20,5 @@ SCOPES = ["openid", "profile", "email", "offline_access"]  # Other OIDC scopes c
 
 CLIENT_ID = os.environ["CLIENT_ID"]
 CLIENT_SECRET = os.environ["CLIENT_SECRET"]
-REDIRECT_URIS = ["http://192.168.0.11:5000/callback"]
+REDIRECT_URIS = ["http://192.168.10.2:5000/callback"]
 ADMIN_NETID_LIST = os.environ['ADMIN_NETID_LIST'].split(",")
