@@ -1,9 +1,14 @@
-body{
+#header,
+#search-bar,
+#action-button-groups{
+    max-width: 80%;
+    margin:50px auto;
     text-align: center;
 }
 
-.filters{
-    display:inline-block;
+#action-button-groups button{
+    margin:0 10px;
+    font-size:30px;
 }
 
 .highlight{
@@ -12,10 +17,6 @@ body{
     margin: 50px;
     padding: 20px;
     border: dashed;
-}
-
-.list{
-    margin: 50px;
 }
 
 .navbar-nav {

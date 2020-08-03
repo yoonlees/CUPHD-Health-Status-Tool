@@ -31,12 +31,32 @@
     </div>
 </nav>
 
+<!-- header -->
+<div id="header">
+    <h1>Champaign-Urbana Public Health District Health Status Tool</h1>
+    <p>A tool for CUPHD to approve, isolate and quanrantine covid19 testers</p>
+</div>
+
 <!-- search bar -->
+<div id="search-bar" class="input-group">
+    <input type="text" class="form-control" placeholder="Search UIN...">
+    <span class="input-group-btn">
+        <button class="btn btn-primary" type="button">Search</button>
+    </span>
+</div>
+
 <!-- status -->
+<div id="current-status" class="input-group"></div>
+
 <!-- action button groups -->
+<div id="action-button-groups">
+  <button type="button" class="btn btn-danger btn-lg">Quarantine</button>
+  <button type="button" class="btn btn-warning btn-lg">Isolate</button>
+  <button type="button" class="btn btn-success btn-lg">Release</button>
+</div>
+</div>
 
-
-<script src="{{url_for('static', filename='homepage.js')}}"></script>
+<!--<script src="{{url_for('static', filename='homepage.js')}}"></script>-->
 
 </body>
 </html>
