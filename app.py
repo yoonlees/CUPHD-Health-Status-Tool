@@ -122,6 +122,22 @@ def homepage():
      else:
           return redirect(url_for("login"))
 
+
+@app.route('/search', methods=['POST'])
+def search():
+     if current_user.is_authenticated:
+
+          if request.get_json() and request.get_json()['uin']:
+               uin = request.get_json()['uin']
+          else:
+               abort(400, 'UIN is a required field!')
+
+          # TODO connect to UIN search API endpoint; placeholder here
+          return {"user": uin}
+
+     else:
+          abort(403, 'User not Authorized! Please login first.')
+
 # @app.route('/', methods=['POST'])
 # def qurantine():
 #      pass

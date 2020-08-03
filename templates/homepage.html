@@ -46,17 +46,19 @@
 </div>
 
 <!-- status -->
-<div id="current-status" class="input-group"></div>
+<div id="current-status">
+    <h4>Chen, Wang</h4>
+    <p>Current Entry Status = Denied</p>
+</div>
 
 <!-- action button groups -->
 <div id="action-button-groups">
-  <button type="button" class="btn btn-danger btn-lg">Quarantine</button>
-  <button type="button" class="btn btn-warning btn-lg">Isolate</button>
-  <button type="button" class="btn btn-success btn-lg">Release</button>
-</div>
+  <button type="button" id="quarantine" class="btn btn-danger btn-lg">Quarantine</button>
+  <button type="button" id="isolate" class="btn btn-warning btn-lg">Isolate</button>
+  <button type="button" id="release" class="btn btn-success btn-lg">Release</button>
 </div>
 
-<!--<script src="{{url_for('static', filename='homepage.js')}}"></script>-->
+<script src="{{url_for('static', filename='homepage.js')}}"></script>
 
 </body>
 </html>

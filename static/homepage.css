@@ -1,5 +1,6 @@
 #header,
 #search-bar,
+#current-status,
 #action-button-groups{
     max-width: 80%;
     margin:50px auto;
@@ -11,10 +12,9 @@
     font-size:30px;
 }
 
-.highlight{
-    display:none;
+#current-status{
+    /*display:none;*/
     background: pink;
-    margin: 50px;
     padding: 20px;
     border: dashed;
 }
