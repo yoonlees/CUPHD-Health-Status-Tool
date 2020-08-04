@@ -144,16 +144,71 @@ def search():
      else:
           abort(403, 'User not Authorized! Please login first.')
 
-# @app.route('/', methods=['POST'])
-# def qurantine():
-#      pass
-#
-#
-# @app.route('/', methods=['POST'])
-# def isolate():
-#      pass
-#
-#
-# @app.route('/', methods=['POST'])
-# def release():
-#      pass
+
+@app.route('/quarantine', methods=['POST'])
+def quarantine():
+     if current_user.is_authenticated:
+
+          if request.get_json() and request.get_json()['uin']:
+               uin = request.get_json()['uin']
+          else:
+               abort(400, 'UIN is a required field!')
+
+          # TODO connect to UIN quarantine API endpoint; placeholder here
+          return {
+               "user": {
+                    "username": "cwang138",
+                    "given_name": "Chen",
+                    "family_name": "Wang",
+                    "status": "Denied"
+               }
+          }
+
+     else:
+          abort(403, 'User not Authorized! Please login first.')
+
+
+@app.route('/isolate', methods=['POST'])
+def isolate():
+     if current_user.is_authenticated:
+
+          if request.get_json() and request.get_json()['uin']:
+               uin = request.get_json()['uin']
+          else:
+               abort(400, 'UIN is a required field!')
+
+          # TODO connect to UIN isolate API endpoint; placeholder here
+          return {
+               "user": {
+                    "username": "cwang138",
+                    "given_name": "Chen",
+                    "family_name": "Wang",
+                    "status": "Isolated"
+               }
+          }
+
+     else:
+          abort(403, 'User not Authorized! Please login first.')
+
+
+@app.route('/release', methods=['POST'])
+def release():
+     if current_user.is_authenticated:
+
+          if request.get_json() and request.get_json()['uin']:
+               uin = request.get_json()['uin']
+          else:
+               abort(400, 'UIN is a required field!')
+
+          # TODO connect to UIN release API endpoint; placeholder here
+          return {
+               "user": {
+                    "username": "cwang138",
+                    "given_name": "Chen",
+                    "family_name": "Wang",
+                    "status": "Released"
+               }
+          }
+
+     else:
+          abort(403, 'User not Authorized! Please login first.')

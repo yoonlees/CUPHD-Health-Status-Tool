@@ -48,6 +48,21 @@ $("#search-bar button").on("click", function () {
     }
 });
 
+// quarantine button
+$("#quarantine").on("click", function(){
+    submitActions("quarantine");
+});
+
+// isolate button
+$("#isolate").on("click", function(){
+    submitActions("isolate");
+});
+
+// release button
+$("#release").on("click", function(){
+    submitActions("release");
+});
+
 // update the status of the searched user (pink area)
 function updateCurrentStatus(user) {
     $("#current-status").show().empty().append(
@@ -55,3 +70,30 @@ function updateCurrentStatus(user) {
         <p>Current Entry Status = ` + user['status'] + `</p>`
     );
 }
+
+// action buttons
+function submitActions(action){
+    var uin = $("#search-bar input").val();
+    if (uin !== "" && uin !== undefined) {
+        $.ajax({
+            url: action,
+            type: "POST",
+            contentType: 'application/json',
+            data: JSON.stringify({
+                "uin": uin
+            }),
+            success: function (data) {
+                 alert("Successfully "+ action  + " the current user: " + data['user']['given_name'] + ", "
+                + data['user']['family_name'] +"!")
+                updateCurrentStatus(data.user)
+            },
+            error: function (jqXHR, exception) {
+                $("#current-status").hide().empty();
+                alert(jqXHR.responseText);
+            }
+        });
+    } else {
+        alert("You have to enter the UIN in search box first!");
+    }
+}
+
