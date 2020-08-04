@@ -133,7 +133,13 @@ def search():
                abort(400, 'UIN is a required field!')
 
           # TODO connect to UIN search API endpoint; placeholder here
-          return {"user": uin}
+          return {"user": {
+               "username":"cwang138",
+               "given_name":"Chen",
+               "family_name":"Wang",
+               "status":"Denied"
+               }
+          }
 
      else:
           abort(403, 'User not Authorized! Please login first.')

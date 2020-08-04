@@ -13,10 +13,9 @@
 }
 
 #current-status{
-    /*display:none;*/
+    display:none;
     background: pink;
     padding: 20px;
-    border: dashed;
 }
 
 .navbar-nav {
