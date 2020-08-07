@@ -16,6 +16,8 @@ from oic.utils.http_util import Redirect
 
 from user import User
 
+from REDCap_connection import set_REDCap_status
+
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
@@ -155,15 +157,21 @@ def quarantine():
                abort(400, 'UIN is a required field!')
 
           # TODO connect to UIN quarantine API endpoint; placeholder here
-          return {
-               "user": {
-                    "username": "cwang138",
-                    "given_name": "Chen",
-                    "family_name": "Wang",
-                    "status": "Denied"
+          REDCap_status, REDCap_message = set_REDCap_status(new_uin=uin, new_status="quarantine")
+          # access_control_status,access_control_message = set_REDCap_status(new_uin=uin, new_status="quarantine")
+          if not REDCap_status:
+               abort(500, REDCap_message)
+          # elif not access_control_status:
+          #      abort(500, access_control_message)
+          else:
+               return {
+                    "user": {
+                         "username": "cwang138",
+                         "given_name": "Chen",
+                         "family_name": "Wang",
+                         "status": "Denied"
+                    }
                }
-          }
-
      else:
           abort(403, 'User not Authorized! Please login first.')
 
@@ -178,6 +186,7 @@ def isolate():
                abort(400, 'UIN is a required field!')
 
           # TODO connect to UIN isolate API endpoint; placeholder here
+          set_REDCap_status(new_uin=uin, new_status="isolate")
           return {
                "user": {
                     "username": "cwang138",
@@ -201,6 +210,7 @@ def release():
                abort(400, 'UIN is a required field!')
 
           # TODO connect to UIN release API endpoint; placeholder here
+          set_REDCap_status(new_uin=uin, new_status="release")
           return {
                "user": {
                     "username": "cwang138",
