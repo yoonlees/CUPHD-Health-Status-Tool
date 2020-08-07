@@ -186,15 +186,18 @@ def isolate():
                abort(400, 'UIN is a required field!')
 
           # TODO connect to UIN isolate API endpoint; placeholder here
-          set_REDCap_status(new_uin=uin, new_status="isolate")
-          return {
-               "user": {
-                    "username": "cwang138",
-                    "given_name": "Chen",
-                    "family_name": "Wang",
-                    "status": "Isolated"
+          REDCap_status, REDCap_message = set_REDCap_status(new_uin=uin, new_status="isolate")
+          if not REDCap_status:
+               abort(500, REDCap_message)
+          else:
+               return {
+                    "user": {
+                         "username": "cwang138",
+                         "given_name": "Chen",
+                         "family_name": "Wang",
+                         "status": "Isolated"
+                    }
                }
-          }
 
      else:
           abort(403, 'User not Authorized! Please login first.')
@@ -210,15 +213,18 @@ def release():
                abort(400, 'UIN is a required field!')
 
           # TODO connect to UIN release API endpoint; placeholder here
-          set_REDCap_status(new_uin=uin, new_status="release")
-          return {
-               "user": {
-                    "username": "cwang138",
-                    "given_name": "Chen",
-                    "family_name": "Wang",
-                    "status": "Released"
+          REDCap_status, REDCap_message = set_REDCap_status(new_uin=uin, new_status="release")
+          if not REDCap_status:
+               abort(500, REDCap_message)
+          else:
+               return {
+                    "user": {
+                         "username": "cwang138",
+                         "given_name": "Chen",
+                         "family_name": "Wang",
+                         "status": "Released"
+                    }
                }
-          }
 
      else:
           abort(403, 'User not Authorized! Please login first.')
