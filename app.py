@@ -113,7 +113,7 @@ def callback():
 @login_required
 def logout():
      logout_user()
-     return redirect(url_for("homepage"))
+     return "You have successfully logged out!"
 
 
 @app.route('/', methods=['GET'])
