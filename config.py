@@ -18,9 +18,16 @@ import os
 ISSUER_URL = "https://shibboleth.illinois.edu"
 SCOPES = ["openid", "profile", "email", "offline_access"]  # Other OIDC scopes can be added as needed.
 
+# SHIBBOLETH
 CLIENT_ID = os.environ["CLIENT_ID"]
 CLIENT_SECRET = os.environ["CLIENT_SECRET"]
 REDIRECT_URIS = [os.environ["REDIRECT_URIS"]]
 ADMIN_NETID_LIST = os.environ["ADMIN_NETID_LIST"].split(",")
+
+# REDCAP
 REDCAP_TOKEN = os.environ["REDCAP_TOKEN"]
 REDCAP_API_ENDPOINT = os.environ["REDCAP_API_ENDPOINT"]
+
+# ACCESS CONTROL
+ACCESSCTRL_KEY = os.environ["ACCESSCTRL_KEY"]
+ACCESSCTRL_API_ENDPOINT = os.environ["ACCESSCTRL_API_ENDPOINT"]
