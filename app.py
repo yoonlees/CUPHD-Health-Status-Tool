@@ -73,7 +73,8 @@ def login():
           "response_type": "code",
           "scope": app.config["SCOPES"],
           "nonce": session["nonce"],
-          "redirect_uri":client.registration_response["redirect_uris"][0],
+          # "redirect_uri":client.registration_response["redirect_uris"][0],
+          "redirect_uri":app.config["REDIRECT_URIS"],
           "state":session["state"],
           "claims":claims_request
      }
