@@ -233,3 +233,10 @@ def release():
 
      else:
           abort(403, 'User not Authorized! Please login first.')
+
+
+# This is the health check for AWS ECS
+@app.route('/health')
+def health():
+    return {'message': 'Healthy'}  # This will return as JSON by default with a 200 status code
+
