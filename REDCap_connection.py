@@ -24,7 +24,7 @@ def set_REDCap_status(new_uin, new_status):
     match_record_request = requests.post(config.REDCAP_API_ENDPOINT, data=data)
     match_record = match_record_request.json()
     if len(match_record) > 0:
-        match_record = dict(match_record.json()[0])
+        match_record = dict(match_record[0])
     else:
         return False, "No matching record was found"
 

@@ -14,9 +14,8 @@ from oic.oic.message import AuthorizationResponse, RegistrationResponse, ClaimsR
 from oic.utils.authn.client import CLIENT_AUTHN_METHOD
 from oic.utils.http_util import Redirect
 
-from user import User
-
 from REDCap_connection import set_REDCap_status
+from user import User
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
